@@ -36,6 +36,14 @@ resource "aws_iam_policy" "lambda_permissions" {
         ]
         Effect   = "Allow"
         Resource = ["arn:aws:s3:::${var.bucket_name}/*","arn:aws:s3:::${var.bucket_name}"]
+      },
+      {
+          "Effect": "Allow",
+          "Action": [
+              "dynamodb:PutItem",
+              "dynamodb:GetItem"
+          ],
+          Resource= ["arn:aws:dynamodb:${var.region}:${var.account_id}:table/${var.table_name}"]
       }
     ]
   })
@@ -55,8 +63,8 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attach" {
 
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_file = "${path.module}/lambda_src/lambda_function.py"
-  output_path = "${path.module}/lambda_src/lambda_function.zip"
+  source_file = "${path.module}/lambda_src/s3_trigger/lambda_function.py"
+  output_path = "${path.module}/lambda_src/s3_trigger/lambda_function.zip"
 }
 
 resource "aws_lambda_function" "s3_lambda" {
@@ -80,12 +88,17 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
   bucket = var.bucket_name
 
   lambda_function {
-    lambda_function_arn = aws_lambda_function.s3_lambda.arn
+    
     events              = ["s3:ObjectCreated:*"]
+    lambda_function_arn = aws_lambda_function.s3_lambda.arn
+    filter_prefix = "images/"
   }
+  
 
   depends_on = [aws_lambda_function.s3_lambda, aws_lambda_permission.allow_s3_invoke]
 }
+
+
 
 resource "aws_lambda_permission" "allow_s3_invoke" {
   statement_id  = "AllowS3Invoke"
@@ -94,3 +107,4 @@ resource "aws_lambda_permission" "allow_s3_invoke" {
   principal     = "s3.amazonaws.com"
   source_arn    = "arn:aws:s3:::${var.bucket_name}"  
 }
+
