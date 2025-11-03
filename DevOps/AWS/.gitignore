@@ -1,0 +1,15 @@
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+crash.log
+override.tf
+override.tf.json
+*.tfplan
+.terraform.lock.hcl
+
+# AWS credentials (never commit)
+*.pem
+*.key
+.aws/
