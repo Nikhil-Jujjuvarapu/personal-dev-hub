@@ -1,0 +1,62 @@
+INSERT INTO prja.departments (dept_name, is_active) VALUES
+('Engineering', TRUE),
+('Human Resources', TRUE),
+('Finance', TRUE),
+('Marketing', TRUE),
+('Sales', TRUE),
+('Operations', TRUE),
+('Research & Development', TRUE),
+('IT Support', TRUE),
+('Legal', TRUE),
+('Administration', TRUE);
+
+INSERT INTO prja.employees (first_name, middle_name, last_name, email, dept_id, joined_on, is_active) VALUES
+('Amit', NULL, 'Sharma', 'amit.sharma@company.com', 1, '2021-04-12', TRUE),
+('Priya', 'R.', 'Menon', 'priya.menon@company.com', 2, '2022-01-10', TRUE),
+('Ravi', NULL, 'Kumar', 'ravi.kumar@company.com', 1, '2020-07-05', TRUE),
+('Sara', NULL, 'Thomas', 'sara.thomas@company.com', 4, '2021-09-15', TRUE),
+('John', 'A.', 'Mathew', 'john.mathew@company.com', 5, '2023-03-01', TRUE),
+('Meena', NULL, 'Das', 'meena.das@company.com', 3, '2022-10-01', TRUE),
+('Arjun', NULL, 'Reddy', 'arjun.reddy@company.com', 1, '2024-01-20', TRUE),
+('Divya', NULL, 'Iyer', 'divya.iyer@company.com', 2, '2023-11-11', TRUE),
+('Rohit', NULL, 'Patel', 'rohit.patel@company.com', 5, '2021-06-01', TRUE),
+('Kiran', 'P.', 'Nair', 'kiran.nair@company.com', 6, '2020-02-15', TRUE),
+('Lata', NULL, 'Verma', 'lata.verma@company.com', 3, '2019-05-20', TRUE),
+('Nikhil', NULL, 'Jain', 'nikhil.jain@company.com', 1, '2024-04-05', TRUE),
+('Anita', NULL, 'Joshi', 'anita.joshi@company.com', 7, '2018-09-12', TRUE),
+('Manoj', NULL, 'Singh', 'manoj.singh@company.com', 8, '2021-11-25', TRUE),
+('Farah', NULL, 'Ali', 'farah.ali@company.com', 9, '2020-10-18', TRUE);
+
+INSERT INTO prja.emp_salary (emp_id, dept_id, doj, salary, band, years_of_exp) VALUES
+(1, 1, '2021-04-12', 90000, 7, 6),
+(2, 2, '2022-01-10', 65000, 6, 4),
+(3, 1, '2020-07-05', 110000, 8, 8),
+(4, 4, '2021-09-15', 80000, 6, 5),
+(5, 5, '2023-03-01', 55000, 4, 2),
+(6, 3, '2022-10-01', 70000, 5, 3),
+(7, 1, '2024-01-20', 50000, 3, 1),
+(8, 2, '2023-11-11', 60000, 4, 2),
+(9, 5, '2021-06-01', 75000, 5, 4),
+(10, 6, '2020-02-15', 95000, 7, 7),
+(11, 3, '2019-05-20', 120000, 9, 10),
+(12, 1, '2024-04-05', 50000, 3, 1),
+(13, 7, '2018-09-12', 130000, 10, 12),
+(14, 8, '2021-11-25', 85000, 6, 6),
+(15, 9, '2020-10-18', 105000, 8, 9);
+
+INSERT INTO prja.emp_addr (emp_id, primary_addr, sec_addr, city, state, ctry, postal_code) VALUES
+(1, '12 MG Road', NULL, 'Bangalore', 'Karnataka', 'India', '560001'),
+(2, '22 Marine Drive', NULL, 'Mumbai', 'Maharashtra', 'India', '400001'),
+(3, '7 Park Street', NULL, 'Kolkata', 'West Bengal', 'India', '700016'),
+(4, '18 MG Avenue', NULL, 'Chennai', 'Tamil Nadu', 'India', '600001'),
+(5, '90 Hill View', 'Flat 12B', 'Pune', 'Maharashtra', 'India', '411001'),
+(6, '22 Rajpath', NULL, 'New Delhi', 'Delhi', 'India', '110001'),
+(7, '1 Jubilee Hills', 'Flat 501', 'Hyderabad', 'Telangana', 'India', '500033'),
+(8, '3 Vellayambalam', NULL, 'Trivandrum', 'Kerala', 'India', '695001'),
+(9, '44 Sector 18', 'House No. 7', 'Noida', 'Uttar Pradesh', 'India', '201301'),
+(10, '33 Race Course', NULL, 'Coimbatore', 'Tamil Nadu', 'India', '641018'),
+(11, '12 Palace Road', NULL, 'Jaipur', 'Rajasthan', 'India', '302001'),
+(12, '8 MG Road', 'Apt 9C', 'Bangalore', 'Karnataka', 'India', '560002'),
+(13, '55 Residency', NULL, 'Lucknow', 'Uttar Pradesh', 'India', '226001'),
+(14, '21 Park Colony', NULL, 'Ahmedabad', 'Gujarat', 'India', '380001'),
+(15, '11 Hill View', NULL, 'Chandigarh', 'Punjab', 'India', '160017');
