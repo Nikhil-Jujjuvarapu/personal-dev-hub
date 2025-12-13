@@ -29,6 +29,7 @@ class LinkedList:
             self.tail.next = new_node
             self.tail = new_node
         self.length+=1
+        return True
     def pop(self):
         if self.length ==0:
             print("Emplty Linked List")
@@ -55,6 +56,7 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
         self.length+=1
+        return True
     def popfirst(self):
         if self.length==0:
             print("Empty List")
@@ -81,15 +83,29 @@ class LinkedList:
             temp.value = value
             return True
         return False
+    def insert(self,index,value):
+        if index<0 or index>=self.length:
+            return False
+        if index==0:
+            return self.prepend(value)
+        if index==self.length:
+            return self.append_l(value)
+        new_node = Node(value)
+        temp = self.get(index-1)
+        new_node.next = temp.next
+        temp.next=new_node
+        self.length+=1
+        return True
 my_linked_list = LinkedList(17)
 my_linked_list.append_l(19)
 my_linked_list.append_l(1)
-my_linked_list.pop()
-my_linked_list.pop()
-my_linked_list.pop()
-my_linked_list.prepend(15)
-my_linked_list.popfirst()
+# my_linked_list.pop()
+# my_linked_list.pop()
+# my_linked_list.pop()
+# my_linked_list.prepend(15)
+# my_linked_list.popfirst()
+my_linked_list.insert(1,98)
 my_linked_list.print_LL()
-my_linked_list.setLL(0,99)
+
 
 

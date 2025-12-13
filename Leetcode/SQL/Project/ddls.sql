@@ -49,3 +49,29 @@ CREATE TABLE prja.emp_addr (
     ctry VARCHAR(50) DEFAULT 'India',
     postal_code VARCHAR(10)
 );
+
+-- ===============================
+-- 5. Projects Table
+-- ===============================
+
+create table prja.projects (
+	project_id serial primary key,
+	project_name varchar(30) not null unique,
+	start_date Date not null,
+	end_date date,
+	dept_id int references prja.departments(dept_id),
+	budget numeric(12,2) check (budget > 0),
+	is_active boolean default true	
+	);
+
+-- ===============================
+-- 6. Employee-Projects Mapping Table
+-- ===============================
+
+create table prja.emp_project_map(
+	emp_proj_id serial primary key,
+	emp_id int references prja.employees(emp_id),
+	project_id int references prja.projects,
+	emp_role varchar(50) default 'Contributor',
+	assigned_on date default current_date
+);
