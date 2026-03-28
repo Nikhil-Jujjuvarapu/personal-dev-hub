@@ -1,0 +1,1 @@
+def fun(s:str or l:list)

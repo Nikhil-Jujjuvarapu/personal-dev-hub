@@ -1,26 +1,28 @@
-import numpy as np
-import matplotlib.pyplot as plt
+# class BankAcc:
+#     def __init__(self,balance):
+#         self.__balance = balance
+    
+#     def deposit(self,amount):
+#         self.__balance+=amount
+    
+#     def get_balance(self):
+#         return self.__balance
+    
+# acc = BankAcc(500)
+# acc.deposit(1000)
+# print(acc._BankAcc__balance)
+# print(acc.get_balance())
 
-x = np.linspace(-5, 5, 100)
-y = -x
 
-y1 = -x          # x + y = 0
-y2 = x           # x - y = 0
+class Animal():
+    def __init__(self):
+        print("Constructor")
 
-plt.figure(figsize=(5,5))
-plt.plot(x, y1, label="x + y = 0")
-plt.plot(x, y2, label="x - y = 0")
+class Dog(Animal):
+    def bark(self):
+        super().eat()
+        print("barking")
 
-plt.scatter(0, 0, color='red', zorder=5)
-plt.text(0.1, 0.1, "(0,0)", fontsize=10)
+dog = Animal()
 
-plt.axhline(0, color='gray')
-plt.axvline(0, color='gray')
-plt.grid(True)
-plt.axis('equal')
-plt.xlim(-5,5)
-plt.ylim(-5,5)
-
-plt.legend()
-plt.title("Unique Solution in Homogeneous System")
-plt.show()
+# dog.eat()
